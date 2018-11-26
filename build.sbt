@@ -1,10 +1,12 @@
-lazy val root = (project in file(".")).enablePlugins(play.sbt.routes.RoutesCompiler, GitVersioning, SbtTwirl)
+lazy val root = (project in file(".")).enablePlugins(play.sbt.routes.RoutesCompiler, SbtTwirl)
 
 organization := "org.webjars"
 
 name := "webjars-play"
 
-scalaVersion := "2.11.12"
+version := "2.7.0-SNAPSHOT"
+
+scalaVersion := "2.12.7"
 
 crossScalaVersions := Seq("2.11.12", "2.12.4")
 
@@ -17,7 +19,7 @@ sources in (Compile, play.sbt.routes.RoutesKeys.routes) ++= ((unmanagedResourceD
 sources in (Test, play.sbt.routes.RoutesKeys.routes) ++= ((unmanagedResourceDirectories in Test).value * "routes").get
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.6.10" % "provided",
+  "com.typesafe.play" %% "play" % "2.7.0-RC3" % "provided",
   "org.webjars" % "requirejs" % "2.3.5",
   "org.webjars" % "webjars-locator" % "0.32-1",
   "org.webjars" % "webjars-locator-core" % "0.35",
